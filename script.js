@@ -1,6 +1,6 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
+
 const localClassCor = document.getElementsByClassName('color');
 
 function alteraCor() {
@@ -36,4 +36,5 @@ function atribuiClass(event) {
   const clSelected = document.querySelector('.selected');
   clSelected.classList.remove('selected');
   event.target.classList.add('selected');
+  
 }
