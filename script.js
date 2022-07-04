@@ -3,7 +3,6 @@
 /* eslint-disable no-undef */
 
 const localClassCor = document.getElementsByClassName('color');
-// const
 
 function alteraCor() {
   const possiveisCores = ['black', 'yellow', 'green', 'red'];
@@ -49,5 +48,20 @@ function adicionarCor(event) {
     event.target.style.backgroundColor = 'white';
   } else {
     event.target.style.backgroundColor = selectionClass.style.backgroundColor;
+  }
+}
+function createButton() {
+  buttonContainer = document.getElementById('button-container');
+  button = document.createElement('button');
+  buttonContainer.appendChild(button);
+  button.id = ('clear-board');
+  button.innerText = 'Limpar';
+}
+createButton();
+button.addEventListener('click', clearButton);
+function clearButton() {
+  pixel = document.getElementsByClassName('pixel');
+  for (let index = 0; index < pixel.length; index += 1) {
+    pixel[index].style.backgroundColor = 'white';
   }
 }
