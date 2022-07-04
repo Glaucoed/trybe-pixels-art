@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 function alteraCor() {
   const localClassCor = document.getElementsByClassName('color');
   const possiveisCores = ['black', 'yellow', 'green', 'red'];
@@ -6,3 +8,15 @@ function alteraCor() {
   }
 }
 alteraCor();
+function createSquare() {
+  pixelBoard = document.getElementById('pixel-board');
+  for (let index = 0; index < 25; index += 1) {
+    pixelSquare = document.createElement('div');
+
+    pixelSquare.className = 'pixel';
+    pixelSquare.style.backgroundColor = 'white';
+
+    pixelBoard.appendChild(pixelSquare);
+  }
+}
+createSquare();
