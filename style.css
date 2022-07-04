@@ -1,0 +1,22 @@
+html, body{
+
+    margin: 0;
+    padding: 0;
+}
+
+
+#color-palette{
+
+    width: 350px;
+    height: 80px;
+    background-color: rgb(102, 6, 6);
+    display: flex;
+    
+
+}
+.color{
+    width: 86px;
+    height: 78px;
+    border: 1px solid black;
+    flex-wrap: wrap;
+}
