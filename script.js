@@ -1,7 +1,9 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
+const localClassCor = document.getElementsByClassName('color');
 
 function alteraCor() {
-  const localClassCor = document.getElementsByClassName('color');
   const possiveisCores = ['black', 'yellow', 'green', 'red'];
   for (let index = 0; index < 4; index += 1) {
     localClassCor[index].style.backgroundColor = possiveisCores[index];
@@ -22,7 +24,16 @@ function createSquare() {
 createSquare();
 
 function colorSelect() {
-  const localClassCor = document.getElementsByClassName('color')[0];
-  localClassCor.classList.add('selected');
+  localClassCor[0].classList.add('selected');
 }
 colorSelect();
+
+for (let index = 0; index < localClassCor.length; index += 1) {
+  localClassCor[index].addEventListener('click', atribuiClass);
+}
+
+function atribuiClass(event) {
+  const clSelected = document.querySelector('.selected');
+  clSelected.classList.remove('selected');
+  event.target.classList.add('selected');
+}
