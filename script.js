@@ -20,3 +20,9 @@ function createSquare() {
   }
 }
 createSquare();
+
+function colorSelect() {
+  const localClassCor = document.getElementsByClassName('color')[0];
+  localClassCor.classList.add('selected');
+}
+colorSelect();
