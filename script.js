@@ -2,7 +2,7 @@ const localClassCor = document.getElementsByClassName('color');
 
 function alteraCor() {
   for (let index = 0; index < 4; index += 1) {
-    const colorRandom = Math.floor(Math.random() * 16777215).toString(16);
+    const colorRandom = parseInt((Math.random() * 0xFFFFFF)).toString(16).padStart(6, '0');
     localClassCor[0].style.backgroundColor = 'black';
     localClassCor[index].style.backgroundColor = `#${colorRandom}`;
   }
