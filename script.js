@@ -104,5 +104,6 @@ function createInputSquare() {
       pixelSquare.addEventListener('click', adicionarCor);
     }
     pixelBoard = newDiv;
-  }}
+  }
+}
 botaoVQV.addEventListener('click', createInputSquare);
