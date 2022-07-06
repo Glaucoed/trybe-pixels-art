@@ -1,9 +1,11 @@
 const localClassCor = document.getElementsByClassName('color');
 
 function alteraCor() {
-  const possiveisCores = ['black', 'yellow', 'green', 'red'];
-  for (let index = 0; index < 4; index += 1) {
-    localClassCor[index].style.backgroundColor = possiveisCores[index];
+  for (let index = 1; index < 4; index += 1) {
+    localClassCor[0].style.backgroundColor = 'black';
+    localClassCor[index].style.backgroundColor = `#${Math.floor(
+      Math.random() * 16777215
+    ).toString(16)}`;
   }
 }
 alteraCor();
