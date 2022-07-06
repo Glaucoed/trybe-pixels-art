@@ -1,11 +1,10 @@
 const localClassCor = document.getElementsByClassName('color');
 
 function alteraCor() {
-  for (let index = 1; index < 4; index += 1) {
+  for (let index = 0; index < 4; index += 1) {
+    const colorRandom = Math.floor(Math.random() * 16777215).toString(16);
     localClassCor[0].style.backgroundColor = 'black';
-    localClassCor[index].style.backgroundColor = `#${Math.floor(
-      Math.random() * 16777215
-    ).toString(16)}`;
+    localClassCor[index].style.backgroundColor = `#${colorRandom}`;
   }
 }
 alteraCor();
@@ -102,8 +101,8 @@ function createInputSquare() {
       pixelSquare.className = 'pixel';
       pixelSquare.style.backgroundColor = 'white';
       newDiv.appendChild(pixelSquare);
+      pixelSquare.addEventListener('click', adicionarCor);
     }
     pixelBoard = newDiv;
-  }
-}
+  }}
 botaoVQV.addEventListener('click', createInputSquare);
