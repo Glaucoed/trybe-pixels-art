@@ -2,7 +2,9 @@ const localClassCor = document.getElementsByClassName('color');
 
 function alteraCor() {
   for (let index = 0; index < 4; index += 1) {
-    const colorRandom = parseInt((Math.random() * 0xFFFFFF)).toString(16).padStart(6, '0');
+    const colorRandom = parseInt(Math.random() * 0xffffff)
+      .toString(16)
+      .padStart(6, '0');
     localClassCor[0].style.backgroundColor = 'black';
     localClassCor[index].style.backgroundColor = `#${colorRandom}`;
   }
@@ -83,27 +85,41 @@ buttonClear.addEventListener('click', clearButton);
 const inputText = document.getElementById('board-size');
 let pixelBoard = document.getElementById('pixel-board');
 const botaoVQV = document.getElementById('generate-board');
-const localNewDiv = document.getElementsByTagName('body')[0];
 
-function createInputSquare() {
-  const valorInput = inputText.value;
-  const valueInput = parseInt(inputText.value) * parseInt(inputText.value);
+function verificaInput() {
   if (inputText.value <= 0) {
-    alert('Board inválido!');
-  } else {
-    pixelBoard.remove();
-    const newDiv = document.createElement('div');
-    newDiv.id = 'pixel-board';
-    newDiv.style.width = `${valorInput * 42}px`;
-    localNewDiv.appendChild(newDiv);
-    for (let index = 0; index < valueInput; index += 1) {
-      const pixelSquare = document.createElement('div');
-      pixelSquare.className = 'pixel';
-      pixelSquare.style.backgroundColor = 'white';
-      newDiv.appendChild(pixelSquare);
-      pixelSquare.addEventListener('click', adicionarCor);
-    }
-    pixelBoard = newDiv;
+    return alert('Board inválido!');
   }
 }
-botaoVQV.addEventListener('click', createInputSquare);
+function removePixelBoard() {
+  pixelBoard.remove();
+}
+function createPixelBoard() {
+  const valorInput = inputText.value;
+  const novoLocalPixelBoard = document.getElementsByTagName('body')[0];
+  const criaNovaDiv = document.createElement('div');
+  criaNovaDiv.id = 'pixel-board';
+  criaNovaDiv.style.width = `${valorInput * 42}px`;
+  novoLocalPixelBoard.appendChild(criaNovaDiv);
+}
+function criaPixel() {
+  const novoPixelBoard = document.getElementById('pixel-board');
+  const valueInput = parseInt(inputText.value) * parseInt(inputText.value);
+  for (let index = 0; index < valueInput; index += 1) {
+    const pixelSquare = document.createElement('div');
+    pixelSquare.className = 'pixel';
+    pixelSquare.style.backgroundColor = 'white';
+    novoPixelBoard.appendChild(pixelSquare);
+    pixelSquare.addEventListener('click', adicionarCor);
+  }
+  pixelBoard = novoPixelBoard;
+}
+
+function administraVQV() {
+  verificaInput();
+  removePixelBoard();
+  createPixelBoard();
+  criaPixel();
+}
+
+botaoVQV.addEventListener('click', administraVQV);
